@@ -1,0 +1,185 @@
+---
+VERSION: d1.0.0.37
+
+TIMEZONE: UTC
+TIMEZONE_DIFF: +0:00
+
+GOOGLE_DRIVE:
+    SLOT_GAME_MULTIPLE_WIN_FILE:
+        FILE_ID: 1E8SR3oVZ8G_fk-GJtU56fEZC6R3516ktJaCRcxmjxm8
+        DOWNLOAD_TO_PATH: ./gameMultipleWin.csv
+        MIME_TYPE: text/csv
+    AA01_GENRE_FILE:
+        FILE_ID: 1jung1f7uJWtEmwgYsEnsFLi4FV576TPlTCN0VIsQ9Iw
+        DOWNLOAD_TO_PATH: ./AA01_genre.csv
+        MIME_TYPE: text/csv
+
+
+CYPRESS_API:
+    URL: 'http://rd37000.cqgame.one:7000'
+    ACCOUNT: tgDA
+    PASSWORD: 1234
+AA01_API:
+    URL: https://stranon.yhwt999.com
+    TOKEN: da46c662744f7d1edcb500d393d0a28e5ec5358d1bb98ff90d4961b56d168e01
+
+TEAMPLUS:
+    URL: https://cqgame.info/API/IMService.ashx
+    ACCOUNT: rmrobot
+    API_KEY: 497D809D-9A9E-0E18-B4A8-83876C86DB27
+    ORDER_ALERT:
+        HIGHER_ALERT_CHAT_SN: ['https://chat.googleapis.com/v1/spaces/AAAAIMgD6qQ/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=J6iUCgCWdnhQajLIXA4XLGOM01yJtVFjRM4_lRMwsvw%3D']
+        PROCESS_ALERT_CHAT_SN: []
+    CASHOUT_ALERT:
+        HIGHER_ALERT_CHAT_SN: []
+    RISK_PLAYER_ALERT:
+        HIGHER_ALERT_CHAT_SN: []
+    SLOT_MULTIPLE_WIN_ALERT:  
+        HIGHER_ALERT_CHAT_SN: []
+    AA01_ALERT:
+        HIGHER_ALERT_CHAT_SN: []        
+    AA01_GENRE_ALERT:
+        HIGHER_ALERT_CHAT_SN: []
+
+SINGLE_ORDER_HIGH_WIN_AMOUNT:
+   - GAME_TYPE: slot
+     MIN_ALERT_THRESHOLD: 10000
+     ALERT_LEVEL:
+             - LEVEL: A
+               RANGE_FROM: 100000
+               MESSAGE: True
+
+             - LEVEL: B
+               RANGE_FROM: 10000
+               RANGE_TO: 100000
+               MESSAGE: False
+
+   - GAME_TYPE: arcade
+     MIN_ALERT_THRESHOLD: 10000
+     ALERT_LEVEL:
+             - LEVEL: A
+               RANGE_FROM: 20000
+               MESSAGE: True
+
+             - LEVEL: B
+               RANGE_FROM: 10000
+               RANGE_TO: 20000
+               MESSAGE: False
+
+   - GAME_TYPE: fish
+     MIN_ALERT_THRESHOLD: 10000
+     ALERT_LEVEL:
+             - LEVEL: A
+               RANGE_FROM: 50000
+               MESSAGE: True
+
+             - LEVEL: B
+               RANGE_FROM: 10000
+               RANGE_TO: 50000
+               MESSAGE: False
+
+SINGLE_PLAYER_CASHOUT_SETTING:
+        CASHOUT_AMOUNT_TIMES:
+                CASHOUT_AMOUNT: 0
+                MIN_ALERT_TIMES: 230
+                ALERT_LEVEL:
+                        - LEVEL: B
+                          RANGE_FROM: 230
+                          RANGE_TO: 500
+
+                        - LEVEL: A
+                          RANGE_FROM: 500
+
+        TOTAL_CASHOUT_AMOUNT:
+                MIN_ALERT_THRESHOLD: 450000
+                ALERT_LEVEL:
+                        - LEVEL: B
+                          RANGE_FROM: 450000
+                          RANGE_TO: 1000000
+
+                        - LEVEL: A
+                          RANGE_FROM: 1000000
+RISK_PLAYER_SETTING:
+    BIG_WIN:
+        WIN_THRESHOLD: 10000
+        ALERT_LEVEL:
+            - LEVEL: 5
+              ORDERS: 5
+              AMOUNT: 100000
+            
+            - LEVEL: 4
+              ORDERS: 3
+              AMOUNT: 100000
+            
+            - LEVEL: 3
+              ORDERS: 5
+              AMOUNT: 50000
+            
+            - LEVEL: 2
+              ORDERS: 3
+              AMOUNT: 50000
+            
+            - LEVEL: 1
+              ORDERS: 5
+              AMOUNT: 10000
+              
+    CONTINUOUS_DAY_WIN:                   
+        WIN_THRESHOLD: 5000
+        DAYS: 3
+        ALERT_LEVEL:
+            - LEVEL: 5
+              DAYS: 3
+              AMOUNT: 5000
+
+            - LEVEL: 1
+              DAYS: 2
+              AMOUNT: 5000
+
+    CUMULATIVE_WIN:
+        WIN_THRESHOLD: 10000
+        DAYS: 30
+        ALERT_LEVEL:
+            - LEVEL: 5
+              AMOUNT: 200000
+
+            - LEVEL: 4
+              AMOUNT: 100000
+
+            - LEVEL: 3
+              AMOUNT: 50000
+
+            - LEVEL: 2
+              AMOUNT: 30000
+
+            - LEVEL: 1
+              AMOUNT: 10000
+    RISK_LEVEL:
+        ALERT_LEVEL:
+        - LEVEL: A
+          RANGE_FROM: 10
+          MESSAGE: True
+          SAVE_ALERT_PLAYER: True 
+
+        - LEVEL: B
+          RANGE_FROM: 5
+          RANGE_TO: 10
+          MESSAGE: True
+          SAVE_ALERT_PLAYER: False 
+
+        - LEVEL: C
+          RANGE_FROM: 1
+          RANGE_TO: 5
+          MESSAGE: False
+          SAVE_ALERT_PLAYER: False 
+              
+AA01_SETTING:
+    NETWIN: 5000
+    GENRE_ALERT_THRESHOLD: 100000
+    GENRE_CLOSE_THRESHOLD: 200000        
+
+AA01_SAME_IP_ADDRESS:
+    TIMES: 3
+    IS_LOGOUT_PLAYER: False
+
+IPAPI:
+    KEY: 9S0pZQOT0fFxBaCE08IjEJYqt88IIjN6GwgVG8StGmGeBWZlyI

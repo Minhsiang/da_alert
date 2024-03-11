@@ -1,0 +1,76 @@
+---
+version: 1
+disable_existing_loggers: False
+formatters:
+    simple:
+        format: "%(asctime)s - %(name)s - %(levelname)s:(%(threadName)s) - %(message)s"
+    console:
+        format: "%(asctime)s - %(name)s - %(levelname)s:(%(threadName)s) - %(message)s"
+
+handlers:
+    console:
+        class: logging.StreamHandler
+        level: DEBUG
+        formatter: console
+        stream: ext://sys.stdout
+
+    info_file_handler:
+        class: logging.handlers.RotatingFileHandler
+        level: DEBUG
+        formatter: simple
+        filename: ./log/info.log 
+        maxBytes: 80000000 # 80MB
+        backupCount: 10
+        encoding: utf8
+
+    warn_file_handler:
+        class: logging.handlers.RotatingFileHandler
+        level: WARN
+        formatter: simple
+        filename: ./log/warn.log 
+        maxBytes: 80000000 # 80MB
+        backupCount: 10
+        encoding: utf8
+
+    error_file_handler:
+        class: logging.handlers.RotatingFileHandler
+        level: ERROR
+        formatter: simple
+        filename: ./log/error.log 
+        maxBytes: 80000000 # 80MB
+        backupCount: 10
+        encoding: utf8
+
+loggers:
+    dao:
+        level: INFO
+        handlers: [info_file_handler, error_file_handler,warn_file_handler]
+        propagate: no     
+
+    flask_server:
+        level: INFO
+        handlers: [info_file_handler, error_file_handler,warn_file_handler]
+        propagate: no     
+
+    private_utils:
+        level: INFO
+        handlers: [info_file_handler, error_file_handler,warn_file_handler]
+        propagate: no     
+
+    redis_func:
+        level: INFO
+        handlers: [info_file_handler, error_file_handler,warn_file_handler]
+        propagate: no     
+
+    threads:
+        level: INFO
+        handlers: [info_file_handler, error_file_handler,warn_file_handler]
+        propagate: no
+    
+    utils:
+        level: INFO
+        handlers: [info_file_handler, error_file_handler,warn_file_handler]
+        propagate: no      
+root:
+    level: INFO
+    handlers: [info_file_handler, error_file_handler,warn_file_handler]

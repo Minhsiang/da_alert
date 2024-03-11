@@ -1,0 +1,104 @@
+---
+VERSION: d1.0.0.29
+
+TIMEZONE: UTC
+TIMEZONE_DIFF: +0:00
+
+TEAMPLUS:
+    URL: https://cqgame.info/API/IMService.ashx
+    ACCOUNT: rmrobot
+    API_KEY: 497D809D-9A9E-0E18-B4A8-83876C86DB27
+    BET_ALERT:
+        HIGHER_ALERT_CHAT_SN: ['https://chat.googleapis.com/v1/spaces/AAAAHPKIhkU/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=j9H_WC5XqgFpWf_8kYp_Mm6qzSk8LXRZzkRLIny8p80%3D']
+        LOWER_ALERT_CHAT_SN: ['https://chat.googleapis.com/v1/spaces/AAAAHPKIhkU/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=j9H_WC5XqgFpWf_8kYp_Mm6qzSk8LXRZzkRLIny8p80%3D']
+    RTP_ALERT:
+        HIGHER_ALERT_CHAT_SN: ['https://chat.googleapis.com/v1/spaces/AAAAUJpNm40/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=bjBq9ut5rsY91OCiYB85cwPj2ZKRTcFIhi74g5FoR90%3D']
+    GAME_MOBILE_RATE_ALERT:   
+        CHAT_SN: ['https://chat.googleapis.com/v1/spaces/AAAAlFu-1g8/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=n8j1XUsFIbUq5Xa_NI53ioITLA_OgLoGMidQ9Go2wgo%3D']
+    BET_ALERT_BY_HOUR:
+        CHAT_SN: ['https://chat.googleapis.com/v1/spaces/AAAACDvaYAE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=hbLDsnjHPij4bLfUN0CDKPR0TgsROt9I8Ef6zpaaUK4%3D']
+
+GAME_MOBILE_RATE_ALERT:
+    DAYS: 3 #抓取前幾天的資料
+    RATE_SETTING_THRESHOLD: 0.03
+    ROUNDS_THRESHOLD: 1000
+    TOP_N_PLAYERS: 3 #抓取前幾名的會員資訊
+    ALERT_LEVEL:  
+        - LEVEL: C
+          RANGE_FROM: 0.03
+          RANGE_TO: 0.2
+          MESSAGE: False
+          PLAYER_INFO: False
+    
+        - LEVEL: B
+          RANGE_FROM: 0.2
+          RANGE_TO: 0.3
+          MESSAGE: True
+          PLAYER_INFO: False
+    
+        - LEVEL: A
+          RANGE_FROM: 0.3
+          MESSAGE: True
+          PLAYER_INFO: True
+
+All_BET_ALERT:
+    FLUCTUATING_RATE: 0
+
+
+PARENT_GAME_RTP_ALERT:
+    MIN_BETS_THRESHOLD: 500000
+    MIN_ALERT_THRESHOLD: 1
+    ALERT_LEVEL:
+        - LEVEL: 100W ~ 130W
+          RANGE_FROM: 1000000
+          RANGE_TO: 1300000
+        
+        - LEVEL: 130W ~
+          RANGE_FROM: 1300000
+
+OWNER_BET_ALERT:
+        MIN_DAILY_BETS_THRESHOLD: 1000000
+        ALERT_LEVEL:
+            - LEVEL: 一億以上,+-3%
+              RANGE_FROM: 100000000
+              FLUCTUATING_RATE: 3
+              FLUCTUATING_BET_AMOUNT: 0
+
+            - LEVEL: 一千萬～一億,+-3%
+              RANGE_FROM: 10000000
+              RANGE_TO: 100000000
+              FLUCTUATING_RATE: 3
+              FLUCTUATING_BET_AMOUNT: 0
+
+            - LEVEL: 一百萬～一千萬,+-3%
+              RANGE_FROM: 1000000
+              RANGE_TO: 10000000
+              FLUCTUATING_RATE: 3
+              FLUCTUATING_BET_AMOUNT: 0
+
+            - LEVEL: 前天押碼 >= 一百萬,+-3%
+              RANGE_TO: 1000000
+              FLUCTUATING_RATE: 3
+              FLUCTUATING_BET_AMOUNT: 0
+
+BET_ALERT_BY_HOUR:
+    DAYS: 7
+
+AVG_ROUND_ALERT_FILE_ICON_THRESHOLD: -40 
+
+FOCUS_ROUND_ALERT_OID:
+  - 2644
+  - 25
+  - 2055
+  - 3521
+  - 5738
+  - 18211
+  - 14695
+  - 282
+  - 15
+  - 18233
+  - 14587
+
+SPECIFIC_PARENT_FILE_ICON_THRESHOLD: 
+    2009: -80  
+    14587: -80          

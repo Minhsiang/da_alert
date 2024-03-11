@@ -1,0 +1,43 @@
+---
+version: 2023/11/22
+
+analysis_mongoDB:
+    host: [10.100.8.87,10.100.8.88,10.100.8.89]
+    port: 27017
+    db: analysis
+    user: Mo6xDA_rW01
+    passwd: YDjSuIG5e2BEod_2
+    replicaset: pro_da_ana_rs
+    authentication_source: admin
+
+cypress_mongoDB:
+    host: [10.100.8.87,10.100.8.88,10.100.8.89]
+    port: 27017
+    db: order
+    user: Mo6xDA_rR01
+    passwd: cbI0FsN9ZNUaBU1_
+    authentication_source: admin
+    replicaset: pro_da_ana_rs
+
+
+# for read data from db:cypress
+cypress_mariaDB:
+    host: 10.100.8.165
+    port: 3306
+    user: My8xDA_rW02
+    passwd: N8SGwtq_UjeWdXYz
+    db: cypress
+
+#for write data into db: dataWarehouse, config, alert
+dataWarehouse_mariaDB:
+    host: 10.100.8.165
+    port: 3306
+    user: My8xDA_rW02
+    passwd: N8SGwtq_UjeWdXYz
+    db: dataWarehouse
+
+redis:
+    host: 10.100.6.6
+    port: 6379
+    db: 0
+

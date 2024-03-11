@@ -1,0 +1,41 @@
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin
+
+PYTHONPATH=".:/home/rmjames0345/officalSource/luigi"
+LUIGI_CONFIG_PATH='/home/rmjames0345/luigi/luigi.cfg'
+SHELLPATH='/home/rmjames0345/shell'
+
+#download files from google
+*/40 * * * * source ${SHELLPATH}/runBtoB_download.sh
+
+#detect oneShotfish alert
+#*/10 * * * * source ${SHELLPATH}/detectOneShotFish.sh
+
+#kuma
+0 20 * * * source ${SHELLPATH}/runDT_kumaByDay.sh
+
+##for recall owner_game detect
+20 * * * * source ${SHELLPATH}/runAlertOwnerGame.sh
+40 * * * * source ${SHELLPATH}/runRecallGame.sh
+
+#for round alert by day(fluctuating rate)(today round V.S. previous month avg round)
+20 21 * * * cd /home/rmjames0345/offical/owner_parentAlert/dist/ && sh /home/rmjames0345/offical/owner_parentAlert/dist/runAlertRoundByDay.sh
+
+#for round alert by hour(fluctuating rate)
+20 * * * * cd /home/rmjames0345/offical/owner_parentAlert/dist/ && sh /home/rmjames0345/offical/owner_parentAlert/dist/runAlertRoundByHour.sh
+
+#for owner/parent RTP detect
+#30 */2 * * * cd /home/rmjames0345/offical/owner_parentAlert/dist/ && sh /home/rmjames0345/offical/owner_parentAlert/dist/runAlertRTP.sh
+
+#for owner/parent BET detection(today bet V.S. previous month avg bet)
+20 21 * * * cd /home/rmjames0345/offical/owner_parentAlert/dist/ && sh /home/rmjames0345/offical/owner_parentAlert/dist/runAlertBET.sh
+
+#for player behavior detect
+*/5 * * * * cd /home/rmjames0345/offical/playerBehaviorAlert/dist/ && sh /home/rmjames0345/offical/playerBehaviorAlert/dist/runAlertOrder.sh
+
+#delete old log file
+0 */4 * * * /home/rmjames0345/shell/deleteOldLogFile.sh
+
+#download gameMultipleWin.csv from google
+0 */2 * * * cd /home/rmjames0345/offical/playerBehaviorAlert/dist/ && sh /home/rmjames0345/offical/playerBehaviorAlert/dist/runDownloadGoogleFile.sh
+

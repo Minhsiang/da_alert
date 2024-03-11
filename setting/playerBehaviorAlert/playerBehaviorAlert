@@ -1,0 +1,42 @@
+---
+version: 2
+
+analysis_mongoDB:
+    host: [10.9.24.87,10.9.24.88,10.9.24.89]
+    port: 27017
+    db: analysis
+    user: RMguizhi_pro
+    passwd: AdfnbYD#e4g!3a_PRO
+    replicaset: pro_da_ana_rs
+    authentication_source: admin    
+    
+cypress_mongoDB:
+    host: [10.9.24.87,10.9.24.88,10.9.24.89]
+    port: 27017
+    db: order
+    user: RMkumquat_pro 
+    passwd: Ku28De3@1#deQk3_PRO
+    authentication_source: admin    
+    replicaset: pro_da_ana_rs
+
+
+# for read data from db:cypress       
+cypress_mariaDB:
+    host: 10.9.24.90
+    port: 3306
+    user: DAxJames_pro
+    passwd: eBeE3va2oOpde_daPRO
+    db: cypress
+
+#for write data into db: dataWarehouse, config, alert
+dataWarehouse_mariaDB:
+    host: 10.9.24.90
+    port: 3306
+    user: RMguizhi_pro
+    passwd: bsIdAfj8DejaE3_PRO   
+    db: dataWarehouse
+
+redis:
+    host: 10.9.34.14
+    port: 6379
+    db: 0

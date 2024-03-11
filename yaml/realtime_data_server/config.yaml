@@ -1,0 +1,13 @@
+---
+VERSION: d1.0.0.4
+
+TIMEZONE: Asia/Taipei
+TIMEZONE_DIFF: +08:00
+
+
+REDIS_UPDATE_PERIOD: 30  # seconds
+
+FLASK_SETTING:
+    HOST: 0.0.0.0
+    PORT: 3002
+    DEBUG: False
